@@ -77,7 +77,7 @@ def test_all(
         
 
 # -> gray -> threshold -> open -> dilate(5) x3
-# -> blur -> dilate(7) x3 -> blur -> close
+# -> blur(9) -> dilate(7) x3 -> blur(11) -> close(15)
 def simplest_method(img, show=False):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     _ ,thresh = cv2.threshold(gray,127,255,cv2.THRESH_BINARY_INV)
