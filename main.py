@@ -26,7 +26,8 @@ def test_all(
     cont = 0
     for img_name in sorted(os.listdir(img_folder)):
         cont += 1
-        n = img_name[0]
+        aux_index = img_name.index("i")
+        n = img_name[0:aux_index]
         # Real image
         img_path = img_folder + "/" + img_name
         img = cv2.imread(img_path)
@@ -131,4 +132,4 @@ def test_one_image(
 # print(compare_seg(real,test,show=True))
 # print(test_one_image(simplest_method,7))
 
-# test_segmentation(simplest_method,"simplest_method")
+# test_all(simplest_method,"simplest_method")
