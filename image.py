@@ -81,8 +81,6 @@ def distance(p1, p2):
 def threshold(img):
     if len(img.shape) == 3:
         img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
-    # if img.dtype.char not in np.typecodes['AllInteger']:
-    #     img = img_as_ubyte(img)
     _, result = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
     return result
 
