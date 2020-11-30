@@ -1,5 +1,5 @@
 import numpy as np
-import cv2
+from cv2 import cv2
 import skimage.segmentation as segmentation
 from skimage import img_as_ubyte
 
@@ -112,6 +112,6 @@ def k_means(img):
     pixel_values = pixel_values.astype(np.float32)
     criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.2)
     k = 2
-    _, labels, (centers) = cv2.kmeans(pixel_values, 2, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
+    _, labels, (centers) = cv2.kmeans(pixel_values, k, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
     segmented_image = centers[labels.flatten()].reshape(img.shape).clip(0, 255).astype(np.uint8)
     return threshold(segmented_image)
